@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>副業・投資の税金ナビ｜副業税金シミュレーターと税金記事</title>
+<meta name="description" content="副業収入にかかる所得税・住民税を無料で瞬時に試算。本業の年収と副業収入を入力するだけで、追加の税負担・手取り額・確定申告の要否（20万円ルール）がすぐ分かる給与所得者向けシミュレーターです。">
+<meta property="og:title" content="副業・投資の税金ナビ｜副業税金シミュレーターと税金記事">
+<meta property="og:description" content="本業の年収と副業収入を入力するだけで、追加の税金・手取り額・確定申告の要否を無料で試算。副業と投資の税金記事も掲載。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="site-title" href="index.html">副業・投資の税金ナビ</a>
+    <nav class="site-nav">
+      <a href="index.html">ホーム</a>
+      <a href="index.html#articles">記事一覧</a>
+      <a href="about.html">運営者情報</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<header class="site-header">
+  <h1>副業・投資の税金ナビ</h1>
+  <p class="tagline">副業と投資の税金を、ツールと記事でやさしく解説</p>
+</header>
+
+<main>
+
+  <section class="card form-card">
+    <h2>かんたん試算</h2>
+    <form id="sim-form" novalidate>
+      <div class="field">
+        <label for="salary">本業の年収（給与収入）</label>
+        <div class="input-wrap">
+          <input type="number" id="salary" inputmode="numeric" min="1" step="1" placeholder="例：400" required>
+          <span class="unit">万円</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="side">副業の年間収入</label>
+        <div class="input-wrap">
+          <input type="number" id="side" inputmode="numeric" min="1" step="1" placeholder="例：30" required>
+          <span class="unit">万円</span>
+        </div>
+      </div>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <button type="submit" id="calc-btn">計算する</button>
+    </form>
+  </section>
+
+  <section id="result" class="result-area" hidden>
+    <h2>試算結果</h2>
+    <p id="r-filing" class="filing"></p>
+    <div class="result-grid">
+      <div class="result-card">
+        <span class="result-label">追加の所得税（復興特別所得税込み）</span>
+        <span class="result-value" id="r-income-tax"></span>
+      </div>
+      <div class="result-card">
+        <span class="result-label">追加の住民税（約10%）</span>
+        <span class="result-value" id="r-resident-tax"></span>
+      </div>
+      <div class="result-card">
+        <span class="result-label">追加の税負担 合計</span>
+        <span class="result-value" id="r-total-tax"></span>
+      </div>
+      <div class="result-card highlight">
+        <span class="result-label">副業の手取り額</span>
+        <span class="result-value" id="r-net"></span>
+      </div>
+      <div class="result-card highlight">
+        <span class="result-label">実質手取り率</span>
+        <span class="result-value" id="r-rate"></span>
+      </div>
+    </div>
+    <p class="result-note">※ 概算値です。社会保険料控除・基礎控除を簡易的に見込んで計算しています。</p>
+  </section>
+
+  <section class="card" id="articles">
+    <h2>記事一覧</h2>
+    <p>副業と投資の税金について、知っておきたいテーマを解説しています。</p>
+    <div class="article-list">
+      <a class="article-card" href="article-01-20man-rule.html">
+        <span class="article-card-cat">副業</span>
+        <span class="article-card-title">副業の20万円ルール、本当の意味と3つの落とし穴</span>
+      </a>
+      <a class="article-card" href="article-02-juminzei-futsuchoshu.html">
+        <span class="article-card-cat">副業</span>
+        <span class="article-card-title">副業の住民税「普通徴収」のやり方完全ガイド</span>
+      </a>
+      <a class="article-card" href="article-03-shotoku-kubun.html">
+        <span class="article-card-cat">副業</span>
+        <span class="article-card-title">雑所得と事業所得の違い、あなたの副業はどっち？</span>
+      </a>
+      <a class="article-card" href="article-04-keihi.html">
+        <span class="article-card-cat">副業</span>
+        <span class="article-card-title">副業の経費にできるもの・できないもの</span>
+      </a>
+      <a class="article-card" href="article-05-bareru.html">
+        <span class="article-card-cat">副業</span>
+        <span class="article-card-title">副業が会社にバレる仕組みと、今日からできる対策</span>
+      </a>
+      <a class="article-card" href="article-06-kakutei-shinkoku.html">
+        <span class="article-card-cat">副業</span>
+        <span class="article-card-title">確定申告のやり方ステップ（副業編）</span>
+      </a>
+      <a class="article-card" href="article-07-kabu-zei-kiso.html">
+        <span class="article-card-cat">投資</span>
+        <span class="article-card-title">株の利益にかかる税金の基本（申告分離課税とは）</span>
+      </a>
+      <a class="article-card" href="article-08-tokutei-kouza.html">
+        <span class="article-card-cat">投資</span>
+        <span class="article-card-title">特定口座「源泉あり/なし」の選び方</span>
+      </a>
+      <a class="article-card" href="article-09-haito-koujo.html">
+        <span class="article-card-cat">投資</span>
+        <span class="article-card-title">配当金の税金と配当控除の使い方</span>
+      </a>
+      <a class="article-card" href="article-10-soneki-tsusan.html">
+        <span class="article-card-cat">投資</span>
+        <span class="article-card-title">損益通算・繰越控除でムダな税金を取り戻す</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="card disclaimer">
+    <h2>ご利用にあたっての注意</h2>
+    <p>
+      本ツールの計算結果はあくまで概算です。給与所得控除・基礎控除・社会保険料控除を簡易的なモデルで計算しており、
+      扶養控除・生命保険料控除などの個別事情は反映されません。
+      正確な税額の計算や確定申告の判断は、税理士または最寄りの税務署にご相談ください。
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="about.html">運営者情報</a>
+    <a href="contact.html">お問い合わせ</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+  <p>&copy; 2026 副業・投資の税金ナビ</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
